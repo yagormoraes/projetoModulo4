@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/yagormorares/projetoModulo4#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "type": "module"
 }
