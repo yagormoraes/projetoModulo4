@@ -7,6 +7,8 @@ import bd from "./database/sqlite-db.js";
 const app = express()
 const port = 3000
 
+app.use(express.json())
+
 historicoLivrariaController(app,bd)
 
 app.listen(port, ()=>{

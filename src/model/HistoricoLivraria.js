@@ -1,7 +1,6 @@
 class HistoricoLivraria{
-    constructor(id_historico,id_usuario,item,preco,dataCompra){
-        this.id_historico = id_historico
-        this.id_usuario = id_usuario
+    constructor(id_user,item,preco,dataCompra){
+        this.id_user = id_user
         this.item = item
         this.preco = preco
         this.dataCompra = dataCompra

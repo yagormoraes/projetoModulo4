@@ -1,4 +1,4 @@
-//import HistoricoLivraria from "../model/HistoricoLivraria.js"
+import HistoricoLivraria from "../model/HistoricoLivraria.js"
 import HistoricoLivrariaDAO from "../DAO/HistoricoLivrariaDAO.js"
 
 const historicoLivrariaController = (app,bd) =>{
@@ -23,6 +23,25 @@ const historicoLivrariaController = (app,bd) =>{
         .catch((erro)=>{
             res.json(erro)
         })
+    })
+
+    app.post('/historico', (req,res)=>{
+        const body = req.body
+        try{
+            const novoHistorico = new HistoricoLivraria(body.id_user, body.item, body.preco, body.data_compra)
+            historicoDAO.inserirNovoHistorico(novoHistorico)
+            .then((resposta)=>{
+                res.json(resposta)
+            })
+            .catch((erro)=>{
+                res.json(erro)
+            })
+        }catch(error){
+            res.json({
+                "msg":error.message,
+                "erro":true
+            })
+        }
     })
 
 }

@@ -42,6 +42,28 @@ class HistoricoLivrariaDAO{
             })
         })
     }
+
+    inserirNovoHistorico = (novoHistorico) =>{
+        return new Promise((resolver,rejeitar)=>{
+            this.bancoDados.run('INSERT INTO HISTORICO(ID_USER, ITEM, PRECO, DATA_COMPRA) VALUES (?, ?, ?, ?)',
+            novoHistorico.id_user, novoHistorico.item, novoHistorico.preco, novoHistorico.data_compra,
+            (erro)=>{
+                if(erro){
+                    rejeitar({
+                        "mensagem":erro.message,
+                        "erro":true
+                    })
+                }else{
+                    resolver({
+                        "mensagem":`Usuario com ID=${novoHistorico.id_user} com sucesso.`,
+                        "usuario":novoHistorico,
+                        "erro":false
+                    })
+                }
+            })
+        })
+
+    }
 }
 
 
