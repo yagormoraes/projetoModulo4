@@ -13,6 +13,18 @@ const historicoLivrariaController = (app,bd) =>{
             res.json(erro)
         })
     })
+
+    app.get('/historico/id_user/:id_user',(req,res)=>{
+        const id_user = req.params.id_user
+        historicoDAO.pegarUmUsuario(id_user)
+        .then((resposta)=>{
+            res.json(resposta)
+        })
+        .catch((erro)=>{
+            res.json(erro)
+        })
+    })
+
 }
 
 export default historicoLivrariaController
