@@ -84,6 +84,28 @@ class HistoricoLivrariaDAO{
             })
         })
     }
+
+    atualizaHistorico = (id_hist, novoHist)=>{
+        return new Promise((resolver,rejeitar)=>{
+            this.bancoDados.run('UPDATE HISTORICO SET ID_USER = ?, ITEM = ?, PRECO = ?, DATA_COMPRA = ? WHERE ID_HIST = ?',
+            novoHist.id_user, novoHist.item, novoHist.preco, novoHist.data_compra, id_hist,
+            (erro)=>{
+                if(erro){
+                    rejeitar({
+                        "mensagem": erro.message,
+                        "erro": true
+                    })
+                }else{
+                    resolver({
+                        "mensagem": `Historico com id ${id_hist} atualizado com sucesso`,
+                        "usuario": novoHist,
+                        "erro":false
+                    })
+                }
+                
+            })
+        })
+    }
 }
 
 

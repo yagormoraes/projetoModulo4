@@ -55,6 +55,27 @@ const historicoLivrariaController = (app,bd) =>{
         })
     })
 
+    app.put('/historico/id_hist/:id_hist',(req,res)=>{
+        const id_hist = req.params.id_hist
+        const body = req.body
+
+        try{
+            const histAtualizado = new HistoricoLivraria(body.id_user, body.item, body.preco, body.data_compra)
+            historicoDAO.atualizaHistorico(id_hist,histAtualizado)
+            .then((resposta)=>{
+                res.json(resposta)
+            })
+            .catch((erro)=>{
+                res.json(erro)
+            })
+        }catch(erro){
+            res.json({
+                "msg":erro.message,
+                "erro":true
+            })
+        }
+    })
+
 }
 
 export default historicoLivrariaController
