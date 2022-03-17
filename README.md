@@ -2,7 +2,7 @@
 
 Projeto do final do módulo 4, proporcionado pelo curso de WebDev FullStack da Resília Educação.
 
-Projeto utilizando Node.js em conjunto do Express.
+Projeto utilizando [Node.js](https://nodejs.org/en/) em conjunto do [Express](https://expressjs.com/).
 
 ## Objetivo:
 Esse projeto tem como objetivo a criação de uma API RESTful do histórico de compras de um cliente de uma livraria, onde é possivel utilizar as operações CRUD nas entidades [SEM NOME].
@@ -12,6 +12,6 @@ Esse projeto tem como objetivo a criação de uma API RESTful do histórico de c
 - NPM v.8.3.1
 
 ## Pacotes:
-- Express: v4.17.3
-- Nodemon: v2.0.15
-- SQLite: [AINDA FALTA]
+- [Express](https://www.npmjs.com/package/express): v4.17.3
+- [Nodemon](https://www.npmjs.com/package/nodemon): v2.0.15
+- [SQLite](https://www.npmjs.com/package/sqlite3): v5.0.2
