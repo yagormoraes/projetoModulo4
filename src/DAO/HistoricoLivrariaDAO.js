@@ -64,6 +64,26 @@ class HistoricoLivrariaDAO{
         })
 
     }
+
+    deletaHistorico = (id_hist)=>{
+        return new Promise((resolver,rejeitar)=>{
+            this.bancoDados.run('DELETE FROM HISTORICO WHERE ID_HIST = ?',
+            id_hist,
+            (erro)=>{
+                if(erro){
+                    rejeitar({
+                        "mensagem":erro.message,
+                        "erro":true
+                    })
+                }else{
+                    resolver({
+                        "deleção_historico":`Historico com id ${id_hist} deletado com sucesso`,
+                        "erro":false
+                    })
+                }
+            })
+        })
+    }
 }
 
 

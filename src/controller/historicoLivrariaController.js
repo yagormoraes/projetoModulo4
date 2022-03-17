@@ -44,6 +44,17 @@ const historicoLivrariaController = (app,bd) =>{
         }
     })
 
+    app.delete('/historico/id_hist/:id_hist',(req,res)=>{
+        const id_hist = req.params.id_hist
+        historicoDAO.deletaHistorico(id_hist)
+        .then((resposta)=>{
+            res.json(resposta)
+        })
+        .catch((erro)=>{
+            res.json(erro)
+        })
+    })
+
 }
 
 export default historicoLivrariaController
