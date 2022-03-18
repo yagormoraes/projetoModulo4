@@ -43,25 +43,25 @@ class HistoricoLivrariaDAO{
         })
     }
 
-    // pegarUmHistorico = (id_historico) =>{
-    //     return new Promisse((resolver,rejeitar)=>{
-    //         this.bancoDados.all('SELECT * FROM HISTORICO WHERE ID_HIST = ?',
-    //         id_historico,
-    //         (erro,linhas)=>{
-    //             if(erro){
-    //                 rejeitar({
-    //                     "mensagem":erro.message,
-    //                     "erro":true
-    //                 })
-    //             }else{
-    //                 resolver({
-    //                     "historico":linhas,
-    //                     "erro":false
-    //                 })
-    //             }
-    //         })
-    //     })
-    // }
+    pegarUmHistorico = (id_historico) =>{
+        return new Promise((resolver,rejeitar)=>{
+            this.bancoDados.all('SELECT * FROM HISTORICO WHERE ID_HIST = ?',
+            id_historico,
+            (erro,linhas)=>{
+                if(erro){
+                    rejeitar({
+                        "mensagem":erro.message,
+                        "erro":true
+                    })
+                }else{
+                    resolver({
+                        "historico":linhas,
+                        "erro":false
+                    })
+                }
+            })
+        })
+    }
 
     inserirNovoHistorico = (novoHistorico) =>{
         return new Promise((resolver,rejeitar)=>{

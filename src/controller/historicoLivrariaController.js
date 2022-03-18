@@ -24,15 +24,15 @@ const historicoLivrariaController = (app,bd) =>{
 
     })
 
-    // app.get('/historico/id_hist/:id_hist', async (req,res)=>{
-    //     try {
-    //         const id_hist = req.params.id_hist
-    //         const respostaHist = await historicoDAO.pegarUmHistorico(id_hist)
-    //         res.json(respostaHist)
-    //     } catch (erro) {
-    //         res.json(erro)
-    //     }
-    // })
+    app.get('/historico/id_hist/:id_hist', async (req,res)=>{
+        try {
+            const id_hist = req.params.id_hist
+            const respostaHist = await historicoDAO.pegarUmHistorico(id_hist)
+            res.json(respostaHist)
+        } catch (erro) {
+            res.json(erro)
+        }
+    })
 
     app.post('/historico', async (req,res)=>{
         const body = req.body
