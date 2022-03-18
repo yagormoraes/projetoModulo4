@@ -105,6 +105,26 @@ class HistoricoLivrariaDAO{
         })
     }
 
+    deletarUmHistorico = (id_user)=>{
+        return new Promise((resolver,rejeitar)=>{
+            this.bancoDados.run('DELETE FROM HISTORICO WHERE ID_USER = ?',
+            id_user,
+            (erro)=>{
+                if(erro){
+                    rejeitar({
+                        "mensagem":erro.message,
+                        "erro":true
+                    })
+                }else{
+                    resolver({
+                        "deleção_historico":`Historico com id ${id_user} deletado com sucesso`,
+                        "erro":false
+                    })
+                }
+            })
+        })
+    }
+
     atualizaHistorico = (id_hist, novoHist)=>{
         return new Promise((resolver,rejeitar)=>{
             this.bancoDados.run('UPDATE HISTORICO SET ID_USER = ?, ITEM = ?, PRECO = ?, DATA_COMPRA = ? WHERE ID_HIST = ?',

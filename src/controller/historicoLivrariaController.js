@@ -58,6 +58,16 @@ const historicoLivrariaController = (app,bd) =>{
         }
     })
 
+    app.delete('/historico/id_user/:id_user', async (req,res)=>{
+        try {
+            const id_user = req.params.id_user
+            const resposta = await historicoDAO.deletarUmHistorico(id_user)
+            res.json(resposta)
+        } catch (error) {
+            res.json(error)
+        }
+    })
+
     app.put('/historico/id_hist/:id_hist', async (req,res)=>{
         const id_hist = req.params.id_hist
         const body = req.body
