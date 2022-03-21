@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/app.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "nodemon ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -19,10 +19,12 @@
   "homepage": "https://github.com/yagormorares/projetoModulo4#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "jest": "^27.5.1",
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   },
   "type": "module"
 }
