@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yagormorares/projetoModulo4#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "jest": "^27.5.1",
     "sqlite3": "^5.0.2"
