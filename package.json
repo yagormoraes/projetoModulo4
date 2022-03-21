@@ -20,6 +20,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.3",
+    "heroku": "^7.59.4",
     "jest": "^27.5.1",
     "sqlite3": "^5.0.2"
   },
@@ -27,5 +28,8 @@
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node":"16"
+  }
 }
