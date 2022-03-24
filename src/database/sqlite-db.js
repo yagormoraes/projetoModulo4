@@ -4,15 +4,15 @@ import { fileURLToPath } from 'url'
 
 sqlite3.verbose()
 
-const CaminhoArquivo = dirname(fileURLToPath(import.meta.url)) + '/database.db'
-const bd = new sqlite3.Database(CaminhoArquivo)
+const filePath = dirname(fileURLToPath(import.meta.url)) + '/database.db'
+const db = new sqlite3.Database(filePath)
 
 process.on('SIGINT',()=>{
-    bd.close(()=>{
-        console.log('Bando de Dados encerrado!');
+    db.close(()=>{
+        console.log('Database ended!');
         process.exit(0)
     })
 })
 
 
-export default bd
+export default db
