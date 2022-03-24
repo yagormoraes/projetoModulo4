@@ -18,5 +18,3 @@ class PurchaseHistory{
 }
 
 export default PurchaseHistory
-
-//The bookshop only accept real (R$), put the price correctly

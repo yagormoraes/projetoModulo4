@@ -117,7 +117,7 @@ class PurchaseHistoryDAO{
                     })
                 }else{
                     resolve({
-                        "deleção_historico":`Purchase History from ID_USER = ${id_user} successfully deleted`,
+                        "delete_purchase_history":`Purchase History from ID_USER = ${id_user} successfully deleted`,
                         "error":false
                     })
                 }

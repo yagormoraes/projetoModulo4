@@ -27,7 +27,7 @@ describe('POST /purchase_history',()=>{
                 "buy_date": "25-02-2013"
             });
         console.log(response.body);
-        expect(response.body.message).toBeTruthy();
+        expect(response.body.msg).toBeTruthy();
     })
 
     test('If the price with the correcty currency',async ()=>{
@@ -69,6 +69,6 @@ describe('PUT /purchase_history/id_hist/:id_hist', ()=>{
                 "buy_date": "25-02-2018"
             })
         console.log(response);
-        expect(response.body.message).toBeTruthy()
+        expect(response.body.msg).toBeTruthy()
     })
 })

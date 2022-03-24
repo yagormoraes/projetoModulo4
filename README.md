@@ -5,7 +5,7 @@ Projeto do final do módulo 4, proporcionado pelo curso de WebDev FullStack da R
 Projeto utilizando [Node.js](https://nodejs.org/en/) em conjunto do [Express](https://expressjs.com/).
 
 ## Objetivo:
-Esse projeto tem como objetivo a criação de uma API RESTful do histórico de compras de um cliente de uma livraria, onde é possivel utilizar as operações CRUD nas entidades [SEM NOME].
+Esse projeto tem como objetivo a criação de uma API RESTful do histórico de compras de um cliente de uma livraria, onde é possivel utilizar as operações CRUD.
 
 ## Pré-requisitos:
 - Node.js v.16.14.0
@@ -31,140 +31,152 @@ Passo 2: Instale os pacotes
 npm install
 ```
 
-Passo 3: Inicie o servidor
+Passo 3: Popule o banco de dados
+```
+npm run populate
+```
+
+Passo 4: Inicie o servidor
 ```
 npm start
 ```
 
 ## Rotas
-* **GET /historico**
+* **GET /purchase_history**
+- Rota que retorna todos os históricos presentes.
 
 Resposta esperada:
 ```
 {
-	"historicoTodos": [
+	"allHistory": [
 		{
 			"ID_HIST": <Int>,
 			"ID_USER": <Int>,
 			"ITEM": <String>,
-			"PRECO": <String>,
-			"DATA_COMPRA": <String>
+			"PRICE": <String>,
+			"BUY_DATE": <String>
 		},
         
         {...}
 		
 	],
-	"erro": <Boolean>
+	"error": <Boolean>
 }
 ```
 
-* **GET /historico/id_user/{id_user}**
+* **GET /purchase_history/id_user/{id_user}**
+- Rota que retorna o histórico de 1 usuário.
 
 Resposta esperada:
 ```
 {
-	"historico": [
+	"purshase_history": [
 		{
 			"ID_HIST": <Int>,
 			"ID_USER": <Int>,
 			"ITEM": <String>,
-			"PRECO": <String>,
-			"DATA_COMPRA": <String>
+			"PRICE": <String>,
+			"BUY_DATE": <String>
 		},
         
         {...}
 	],
-	"erro": <Boolean>
+	"error": <Boolean>
 }
 ```
 
-* **GET /historico/id_hist/{id_hist}**
+* **GET /purchase_history/id_hist/{id_hist}**
+- Rota que retorna um histórico.
 
 Resposta esperada:
 ```
 {
-	"historico": [
+	"purchaseHistory": [
 		{
 			"ID_HIST": <Int>,
 			"ID_USER": <Int>,
 			"ITEM": <String>,
-			"PRECO": <String>,
-			"DATA_COMPRA": <String>
+			"PRICE": <String>,
+			"BUY_DATE": <String>
 		}
 	],
-	"erro": <Boolean>
+	"error": <Boolean>
 }
 ```
 
-* **POST /historico**
+* **POST /purchase_history**
+- Rota que faz a inserção de uma nova compra ao histórico.
 
 Requisição esperada:
 ```
 {
-	"ID_USER": <Int>,
-	"ITEM": <String>,
-	"PRECO": <String>,
-	"DATA_COMPRA": <String>
+	"id_user": 5,
+	"item": "Fahreinheit 456",
+	"price": "R$20,00",
+	"buy_date": "05-12-2020"
 }
 ```
 
 Resposta esperada:
 ```
 {
-	"mensagem": <String> ,
-	"usuario": {
-		"ID_USER": <Int>,
-	    "ITEM": <String>,
-	    "PRECO": <String>,
-	    "DATA_COMPRA": <String>
+	"msg": <String> ,
+	"user": {
+		"id_user": <Int>,
+	    "item": <String>,
+	    "price": <String>,
+	    "buy_date": <String>
 	},
-	"erro": <Boolean>
+	"error": <Boolean>
 }
 ```
 
-* **DELETE /historico/id_user/{id_user}**
+* **DELETE /purchase_history/id_user/{id_user}**
+- Rota que faz a deleção de todo o histórico, dado um usuário.
 
 Resposta esperada:
 ```
 {
-	"deleção_historico": <String>,
-	"erro": <Boolean>
+	"delete_purchase_history": <String>,
+	"error": <Boolean>
 }
 ```
 
-* **DELETE /historico/id_hist/{id_hist}**
+* **DELETE /purchase_history/id_hist/{id_hist}**
+- Rota que faz a deleção de somente 1 histórico.
 
 Resposta esperada:
 ```
 {
-	"deleção_historico": <String>,
-	"erro": <Boolean>
+	"delete_purchase_history": <String>,
+	"error": <Boolean>
 }
 ```
 
-* **PUT /historico/id_hist/{id_hist}**
+* **PUT /purchase_history/id_hist/{id_hist}**
+- Rota que atualiza 1 histórico.
 
 Requisição esperada:
 ```
 {
-	"ID_USER": <Int>,
-	"ITEM": <String>,
-	"PRECO": <String>,
-	"DATA_COMPRA": <String>
+	"id_user": <Int>,
+	"item": <String>,
+	"price": <String>,
+	"buy_date": <String>
 }
 ```
 
 Resposta esperada:
 ```
 {
-	"mensagem": <String> ,
+	"msg": <String> ,
 	"usuario": {
-		"ID_USER": <Int>,
-	    "ITEM": <String>,
-	    "PRECO": <String>,
-	    "DATA_COMPRA": <String>
+		"id_user": <Int>,
+	    "item": <String>,
+	    "price": <String>,
+	    "buy_date": <String>
 	},
-	"erro": <Boolean>
+	"error": <Boolean>
 }
 ```
 
