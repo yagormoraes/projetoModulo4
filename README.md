@@ -23,20 +23,24 @@ Esse projeto tem como objetivo a criação de uma API RESTful do histórico de c
 
 Passo 1: Clone o resositório
 ```
-https://github.com/yagormorares/projetoModulo4.git
+git clone https://github.com/yagormorares/projetoModulo4.git
+```
+Passo 2: Entre na pasta
+```
+cd projetoModulo4
 ```
 
-Passo 2: Instale os pacotes
+Passo 3: Instale os pacotes
 ```
 npm install
 ```
 
-Passo 3: Popule o banco de dados
+Passo 4: Popule o banco de dados
 ```
 npm run populate
 ```
 
-Passo 4: Inicie o servidor
+Passo 5: Inicie o servidor
 ```
 npm start
 ```
